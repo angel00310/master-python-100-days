@@ -142,7 +142,7 @@ elif user_choice == computer_choice:
 # letter_index = abc.index(letter)
 # number_index = int(position[1]) - 1
 # map[number_index][letter_index] = "X"
-#
+# (矩陣為先上到下 在左到右)
 #
 # # Write your code above this row 👆
 # # 🚨 Don't change the code below 👇
