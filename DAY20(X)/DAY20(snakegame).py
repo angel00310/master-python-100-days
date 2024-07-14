@@ -41,23 +41,28 @@ while game_is_on:
 
     # Detect collision with wall 撞牆機制
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.gane_over()
+        scoreboard.reset()
+        snake.reset()
 
-    # # Detect collision with tail 撞身機制
-    # for segment in snake.segments:
-    #     if segment == snake.head:
-    #         pass
-    #     elif snake.head.distance(segment) < 10:
+
+
+    # Detect collision with tail 撞身機制
+    for segment in snake.segments:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) < 10:
+            scoreboard.reset()
+            snake.reset()
+
+
+
+
+    # # 用slice的概念 Detect collision with tail 撞身機制
+    # for segment in snake.segments[1:]:
+    #     #從list的第二個到最後
+    #     if snake.head.distance(segment) < 10:
     #         game_is_on = False
     #         scoreboard.gane_over()
-
-    # 用slice的概念 Detect collision with tail 撞身機制
-    for segment in snake.segments[1:]:
-        #從list的第二個到最後
-        if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.gane_over()
 
 
 
