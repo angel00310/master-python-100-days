@@ -29,15 +29,24 @@ while len(guessed_states) < 50:
                                     prompt="What's another state's name?").title()
                                     #title為視窗名稱，prompt為提示文字         #固定讓第一個字母大寫，其他小寫
     #退出遊戲
-    if answer_state == "Exit":
-        missing_states = []
-        #只創建沒猜中的州列表
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
-        new_data = pandas.DataFrame(missing_states)
-        new_data.to_csv("states_to_learn.csv")
-        break
+    # if answer_state == "Exit":
+    #     missing_states = []
+    #     #只創建沒猜中的州列表
+    #     for state in all_states:
+    #         if state not in guessed_states:
+    #             missing_states.append(state)
+    #     new_data = pandas.DataFrame(missing_states)
+    #     new_data.to_csv("states_to_learn.csv")
+    #     break
+
+    #使用DAY21 的概念
+    missing_states = [state for state in all_states if state not in guessed_states ]
+    new_data = pandas.DataFrame(missing_states)
+    new_data.to_csv("states_to_learn.csv")
+    break
+
+
+
 
     # 確認輸入的文字在50州內
     if answer_state in all_states:
